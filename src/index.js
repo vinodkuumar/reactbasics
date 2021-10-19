@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
 import NewsList from './components/news-list';
+import Footer from './components/Footer';
+
+import './styles/styles.css';
 
 import JSON from './db.json';
 
@@ -9,16 +12,24 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            news: JSON
+            news: JSON,
+            footerText: 'iam the main footer'
         }
     }
     render() {
-        return(
+        const state = this.state;
+        return (
             <>
-            <Header />
-            <NewsList 
-                news={this.state.news}
-                hello={true}/>
+                <Header />
+                <NewsList
+                    news={state.news}
+                    hello={true}>
+                    <br />
+                    <h1>iam a children</h1>
+                    </NewsList>
+                <Footer 
+                    footerText={state.footerText}
+                    />
             </>
         )
     }
