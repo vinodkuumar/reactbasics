@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 
-
+const style = {
+    background: 'red'
+}
 
 class Header extends Component {
-    state = {
-
-        keywords: '',
-
-    }
     hello = () => {
         console.log('logo was clicked')
     }
-    inputChange(event) {
-        console.log(event.target.value)
-        this.setState({
-            keywords: event.target.value
-        })
-    }
+    // state = {
+    //     active: false,
+    //     keywords: '',
+    // }
+    
+    // inputChange(event) {
+    //     const value = event.target.value === '' ? false : true;
+    //     this.setState({
+    //         active: value,
+    //         keywords: event.target.value
+    //     })
+    // }
 
     render() {
         return (
@@ -25,10 +28,7 @@ class Header extends Component {
                     className="logo"
                     onClick={this.hello}>Logo</div>
                 <input
-                    onChange={(event) => this.inputChange(event)} />
-
-
-
+                    onChange={this.props.keywords} />
             </header>
         )
     }
